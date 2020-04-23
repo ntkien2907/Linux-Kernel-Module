@@ -4,9 +4,9 @@
 * B1: Mở terminal ở thư mục chưa các file hiện tại.
 * B2: Gõ lệnh **make**. Module được tạo ra.
 * B3: Để đưa module vô kernel, gõ lệnh **sudo insmod random_driver.ko**
-* B4: Gõ lệnh **dmesg** để kiểm tra driver có major là bao nhiêu.
+* B4: Gõ lệnh **dmesg** để kiểm tra driver có số **major** là bao nhiêu.
 * B5: Tạo device file để quản lí driver vừa tạo.
-Gõ lệnh: **sudo mknod /dev/random_dev c major 0**
+Gõ lệnh: **sudo mknod /dev/random_dev c <số major> 0**
 * B6: Gõ **./run** để chạy.
 
 * B7: Để gỡ module ra khỏi kernel, gõ **sudo rmmod random_driver**
