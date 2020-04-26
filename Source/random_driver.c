@@ -54,7 +54,7 @@ static int __init random_driver_init(void)
 /* ham ket thuc driver */
 static void __exit random_driver_exit(void) {	
 	unregister_chrdev(major, "random_device"); 
-	printk("~ Exit random driver ~\n");
+	printk("Exit random driver\n");
 }
 /********************************* OS specific - END ********************************/
 

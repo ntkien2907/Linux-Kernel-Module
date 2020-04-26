@@ -25,17 +25,21 @@ int main() {
 
         	switch (option) {
 
-            	case 'o':        
-			fd = open(DEVICE_FILE, 0);
-			if (fd < 0) {
-				printf("Cannot open device %s !!\n", DEVICE_FILE);
-				return errno;
-			}
+            	case 'o':
+			if (fd >= 0) 
+				printf("=> Device has already opened !!\n");						
+			else { 
+				fd = open(DEVICE_FILE, 0);
+				if (fd < 0) {
+					printf("=> Cannot open device %s !!\n", DEVICE_FILE);
+					return errno;
+				}
+			}        			
 			break;	
 				                 
 	    	case 'r':
 			if (fd < 0)
-				printf("=> Device has not opened !!\n");
+				printf("=> Device has not opened yet !!\n");
 			else {
 				ret = read(fd, &random, sizeof(random));
 				printf("=> Random number: %d\n", ret);
@@ -44,11 +48,11 @@ int main() {
 
 		case 'c':               
                 	close(fd);                
-                	printf("=> Close the random device successfully\n");
+                	printf("=> Close random device successfully\n");
                 	return 0;
 	 
             	default:
-                	printf("Invalid option %c\n", option);
+                	printf("=> Invalid option %c\n", option);
                 	break;
         	}
 	}
